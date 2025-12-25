@@ -20,9 +20,9 @@ pipeline {
       steps {
         script {
           IMAGE_TAG = sh(
-            script: "echo $(git rev-parse --short HEAD)-$(date +%Y%m%d%H%M%S)",
+            script: 'echo $(git rev-parse --short HEAD)-$(date +%Y%m%d%H%M%S)',
             returnStdout: true
-          ).trim()
+).trim()
 
           env.FULL_IMAGE = "${REGION}-docker.pkg.dev/${PROJECT_ID}/${AR_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
 
